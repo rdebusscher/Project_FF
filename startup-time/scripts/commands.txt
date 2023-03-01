@@ -1,0 +1,32 @@
+# Start virtual env for Python
+source venv/bin/activate
+
+# Install package 'requests'
+python -m pip install requests
+
+
+# Testing
+python test_runtime.py -r SpringBoot -v
+python test_runtime.py -r SpringBoot -v --url GET_JSON
+python test_runtime.py -r SpringBoot -v --url POST_JSON
+
+python test_runtime.py -r PureJava -v
+python test_runtime.py -r PureJava -v --url GET_JSON
+python test_runtime.py -r PureJava -v --url POST_JSON
+
+python test_runtime.py -r Quarkus -v
+python test_runtime.py -r Quarkus -v --url GET_JSON
+python test_runtime.py -r Quarkus -v --url POST_JSON
+
+python test_runtime.py -r Ktor -v
+python test_runtime.py -r Ktor -v --url GET_JSON
+python test_runtime.py -r Ktor -v --url POST_JSON
+
+# profiling
+python test_runtime.py -r SpringBoot -n 5
+
+python test_runtime.py -r PureJava -n 5
+
+python test_runtime.py -r Quarkus -n 5
+
+python test_runtime.py -r Ktor -n 5
