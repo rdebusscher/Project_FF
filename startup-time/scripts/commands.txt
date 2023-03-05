@@ -22,6 +22,32 @@ python test_runtime.py -r Ktor -v
 python test_runtime.py -r Ktor -v --url GET_JSON
 python test_runtime.py -r Ktor -v --url POST_JSON
 
+python test_runtime.py -r Payara -v
+python test_runtime.py -r Payara -v --url GET_JSON
+python test_runtime.py -r Payara -v --url POST_JSON
+
+python test_runtime.py -r Liberty -v
+python test_runtime.py -r Liberty -v --url GET_JSON
+python test_runtime.py -r Liberty -v --url POST_JSON
+
+
+python test_runtime.py -r Wildfly -v
+python test_runtime.py -r Wildfly -v --url GET_JSON
+python test_runtime.py -r Wildfly -v --url POST_JSON
+
+python test_runtime.py -r Helidon -v
+python test_runtime.py -r Helidon -v --url GET_JSON
+python test_runtime.py -r Helidon -v --url POST_JSON
+
+python test_runtime.py -r Piranha -v
+python test_runtime.py -r Piranha -v --url GET_JSON
+python test_runtime.py -r Piranha -v --url POST_JSON
+
+python test_runtime.py -r Micronaut -v
+python test_runtime.py -r Micronaut -v --url GET_JSON
+python test_runtime.py -r Micronaut -v --url POST_JSON
+
+
 # profiling
 python test_runtime.py -r SpringBoot -n 5
 
@@ -30,3 +56,13 @@ python test_runtime.py -r PureJava -n 5
 python test_runtime.py -r Quarkus -n 5
 
 python test_runtime.py -r Ktor -n 5
+
+python test_runtime.py -r Payara -n 5
+
+python test_runtime.py -r Liberty -n 5
+
+python test_runtime.py -r Wildfly -n 5
+
+python test_runtime.py -r Helidon -n 5
+
+python test_runtime.py -r Piranha -n 5

@@ -54,3 +54,6 @@ out/
 
 # snyk
 .dcignore
+
+# Python virtual env
+__pycache__

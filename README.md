@@ -17,4 +17,13 @@ Frameworks
 - Quarkus 2.16
 - Ktor 
 - HttpServer from Java
+- Payara 6
+- OpenLiberty
+- Wildly 27
+- Helidon 3.1
+- Piranha
+- Micronaut
+
+
+
  

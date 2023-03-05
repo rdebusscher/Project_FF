@@ -1,5 +1,7 @@
-import requests
+import shutil
 
+import requests
+import os
 from globals import verbose_output
 from parameters import get_program_arguments
 from run_command import AtbashPerformanceRunner
@@ -22,6 +24,15 @@ def post_json_url_call():
     return full_url, requests.post("http://localhost:8080/person", json={"name": "John", "age": 42}, headers=headers)
 
 
+def cleanup_noop():
+    pass
+
+
+def cleanup_piranha():
+    os.remove("RUNTIME.pid")
+    shutil.rmtree(os.path.abspath("../piranha/bin/ROOT"))
+
+
 def determine_url_call(url_name):
     if url_name == "GET-String":
         return get_string_url_call
@@ -33,6 +44,7 @@ def determine_url_call(url_name):
 
 def get_execution_parameters(args):
     execution = {"repeat": args.n if not args.v else 1, "v": args.v}
+    execution["cleanup"] = cleanup_noop
     if args.runtime == "SpringBoot":
         execution["jar"] = "../springboot/target/spring.jar"
     if args.runtime == "PureJava":
@@ -41,6 +53,20 @@ def get_execution_parameters(args):
         execution["jar"] = "../quarkus/target/quarkus-runner.jar"
     if args.runtime == "Ktor":
         execution["jar"] = "../ktor/target/ktor-jar-with-dependencies.jar"
+    if args.runtime == "Payara":
+        execution["jar"] = "../payara/target/payara-microbundle.jar"
+    if args.runtime == "Liberty":
+        execution["jar"] = "../liberty/target/liberty.jar"
+    if args.runtime == "Wildfly":
+        execution["jar"] = "../wildfly/target/wildfly-bootable.jar"
+    if args.runtime == "Helidon":
+        execution["jar"] = "../helidon/target/helidon.jar"
+    if args.runtime == "Micronaut":
+        execution["jar"] = "../micronaut/target/micronaut-0.1.jar"
+    if args.runtime == "Piranha":
+        execution["script"] = "./../piranha/bin/piranha.sh"
+        execution["cleanup"] = cleanup_piranha
+
     execution["url_callback"] = determine_url_call(args.url)
     execution["verbose"] = args.v
     return execution
@@ -48,7 +74,11 @@ def get_execution_parameters(args):
 
 def perform_single_run(execution_parameters):
     runner = AtbashPerformanceRunner()
-    runner.launch_runtime_java(execution_parameters["jar"], jvm_params=["-XX:NativeMemoryTracking=detail"])
+    if "jar" in execution_parameters:
+        runner.launch_runtime_java(execution_parameters["jar"], jvm_params=["-XX:NativeMemoryTracking=detail"])
+    else:
+        runner.launch_runtime_shell(execution_parameters["script"])
+
     healthy = runner.wait_for(execution_parameters)
     if healthy:
         runner.calculate_first_response_delay()
@@ -60,6 +90,7 @@ def perform_single_run(execution_parameters):
     else:
         print("Process not properly started")
         print(runner.end_process())
+    execution_parameters["cleanup"]()  # Perform the cleanup method
     return healthy
 
 

@@ -21,7 +21,7 @@ def wait_until_200(execution_parameters):
         except requests.exceptions.ConnectionError:
             pass
         time.sleep(0.05)  # 50 ms wait
-        if time.time() - start_time >= 10:
+        if time.time() - start_time >= 15: #Wait max 15 sec
             print("Timeout reached for endpoint {url}".format(url=full_url))
             result = False
             break
