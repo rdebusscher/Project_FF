@@ -63,6 +63,8 @@ def get_execution_parameters(args):
         execution["jar"] = "../helidon/target/helidon.jar"
     if args.runtime == "Micronaut":
         execution["jar"] = "../micronaut/target/micronaut-0.1.jar"
+    if args.runtime == "Atbash":
+        execution["jar"] = "../Atbash/target/atbash.jar"
     if args.runtime == "Piranha":
         execution["script"] = "./../piranha/bin/piranha.sh"
         execution["cleanup"] = cleanup_piranha

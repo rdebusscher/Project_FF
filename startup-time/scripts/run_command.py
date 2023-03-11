@@ -96,14 +96,15 @@ class AtbashPerformanceRunner:
         return out.decode() + err.decode()
 
     def determine_memory_usage(self, execution_parameters):
-        jcmd_output = self.__execute_command(["jcmd", str(self.runtime_pid), "VM.native_memory", "summary"])
+        #jcmd_output = self.__execute_command(["jcmd", str(self.runtime_pid), "VM.native_memory", "summary"])
         ps_output = self.__execute_command(["ps", "-o", "rss", "-p", str(self.runtime_pid)])
         rss_mem = ps_output.split("\n")[1]
-        java_mem = jcmd_output.split("\n")[6].split("=")[-1]
-        print("RSS = %s, Java = %s " % (rss_mem, java_mem))
-        if execution_parameters["verbose"]:
-            verbose_output.append("Memory usage details")
-            verbose_output.append(jcmd_output)
+        #java_mem = jcmd_output.split("\n")[6].split("=")[-1]
+        #print("RSS = %s, Java = %s " % (rss_mem, java_mem))
+        print("RSS = {mem}".format(mem=rss_mem))
+        #if execution_parameters["verbose"]:
+        #    verbose_output.append("Memory usage details")
+        #    verbose_output.append(jcmd_output)
 
     def wait_for(self, execution_parameters):
         if self.runtime_pid == -1:

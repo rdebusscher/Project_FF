@@ -15,8 +15,8 @@ Of the following frameworks
 
 - Payara 6. Jakarta EE 10 application running on Payara 6
 - OpenLiberty. Jakarta EE 8 application running on OpenLiberty.
-- Wildfly 27. Jakarta EE 10 application running on Payara 6
-- Helidon 3.1. Project created using the Helidon Starter the includes JSON-P and JSON-B support.
+- Wildfly 27. Jakarta EE 10 application running on Wildfly
+- Helidon SE 3.1. Project created using the Helidon Starter the includes JSON-P and JSON-B support.
 - Piranha. Jakarta EE 10 core profile application running on the Cor profile distribution
 - Micronaut 3.8. Project created using Micronaut Launcher and has support for JSON handling.
 

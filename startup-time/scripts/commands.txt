@@ -47,6 +47,10 @@ python test_runtime.py -r Micronaut -v
 python test_runtime.py -r Micronaut -v --url GET_JSON
 python test_runtime.py -r Micronaut -v --url POST_JSON
 
+python test_runtime.py -r Atbash -v
+python test_runtime.py -r Atbash -v --url GET_JSON
+python test_runtime.py -r Atbash -v --url POST_JSON
+
 
 # profiling
 python test_runtime.py -r SpringBoot -n 5
@@ -66,3 +70,5 @@ python test_runtime.py -r Wildfly -n 5
 python test_runtime.py -r Helidon -n 5
 
 python test_runtime.py -r Piranha -n 5
+
+python test_runtime.py -r Atbash -n 5
