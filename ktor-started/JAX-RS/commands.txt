@@ -1,0 +1,66 @@
+====
+    Copyright 2023 Rudy De Busscher (https://www.atbash.be)
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+====
+
+
+Within `logback.xml`, define the following log level to reduce the amount of info that will be logged.
+
+<logger name="io.ktor" level="INFO"/> <!--  TRACE for detailed info -->
+
+
+# Define basic routing
+
+get("/") {
+
+example: http://localhost:8080/
+
+# Wildcard mapping
+
+get("/show_uri/{...}") {
+
+example: http://localhost:8080/show_uri/additional/path?test
+
+# path and query parameters
+
+get("/hello/{name?}") {
+    val name = call.parameters["name"] ?:
+    val language = call.request.queryParameters["language"] ?: "en"
+
+example: http://localhost:8080/hello/ktor?language=nl
+
+
+# Basic validation
+
+See the code for `is_even_value` route.
+
+example: http://localhost:8080/is_even_value/4
+example: curl -v http://localhost:8080/is_even_value/5
+
+# JSON as Response (similar to JSON-B)
+
+See the code for `person` route.
+
+example: http://localhost:8080/person
+
+# Using something similar to JSON-P
+
+See the code for `person` route.
+
+example: http://localhost:8080/person/jsonp
+
+# Post data as JSON
+
+
+curl -X POST http://localhost:8080/person -H 'Content-Type: application/json' -d '{"name":"Kotlin",age:7}'

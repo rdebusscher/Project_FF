@@ -26,4 +26,14 @@ Frameworks
 
 
 
- 
+# Ktor for Jakarta EE Developers
+
+A series of examples with Kotlin Ktor for the Jakarta EE developers.
+
+See also blogs : *Coming soon*
+
+# Equivalent of JAX-RS, JSON-B and JSON-P
+
+Example of defining routing and using JSON payloads utilizing similar functionality as JSON-B and JSON-P.
+
+See also blog : *Coming soon*
