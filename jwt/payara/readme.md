@@ -15,13 +15,13 @@ Following steps are required to set it up.
     <scope>provided</scope>
 </dependency>
 ````
-- Configure the public key for verification, issuer, and optionally the audience. These vaus are picked up through MicroProfile Config and in this example, we use th `microprofile-config.properties` file. We are using Keycloak, so we define the URL where the keys can be retrieved in JWS format using the _mp.jwt.verify.publickey.location_ key.  The issuer is equally to the realm name (in th URL format for keycloak).
-- Don't forget to add the `@LoginConfig` annotation to a CDI bean in order to 'activate' th JWT support. In this example, it is placed on the class that defines the JAX-RS application (see class JwtRestApplication)
-- For Payara Micro, it is also required to define the possible _roles_ we ar expected and this is possible through the `@DeclareRoles`anntation, place in this case on the same class definition.
+- Configure the public key for verification, issuer, and optionally the audience. These values are picked up through MicroProfile Config and in this example, we use the `microprofile-config.properties` file. We are using Keycloak, so we define the URL where the keys can be retrieved in JWS format using the _mp.jwt.verify.publickey.location_ key.  The issuer is equally to the realm name (in th URL format for keycloak).
+- Don't forget to add the `@LoginConfig` annotation to a CDI bean in order to 'activate' the JWT support. In this example, it is placed on the class that defines the JAX-RS application (see class `JwtRestApplication`)
+- For Payara Micro, it is also required to define the possible _roles_ we are expected and this is possible through the `@DeclareRoles` annotation, place in this case on the same class definition.
 
 ## Usage
 
-On the JAX-RS methods, we can define the rol that we expect in the JWT before the client is allowed to make the request.  In the example, there is an endpoint that can ony be called with the _administrator_ role.
+On the JAX-RS methods, we can define the role that we expect in the JWT before the client is allowed to make the request.  In the example, there is an endpoint that can ony be called with the _administrator_ role.
 
 ````
 @RolesAllowed("administrator")
@@ -37,7 +37,7 @@ You can access a single claim value from the token by using the following proper
     private String name;
 ````
 
-or you can have access to any aspect of the token by acessing the `JsonWebToken`. 
+or you can have access to any aspect of the token by accessing the `JsonWebToken`. 
 
 ````
     @Inject

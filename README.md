@@ -32,8 +32,17 @@ A series of examples with Kotlin Ktor for the Jakarta EE developers.
 
 See also blogs : *Coming soon*
 
-# Equivalent of JAX-RS, JSON-B and JSON-P
+## Equivalent of JAX-RS, JSON-B and JSON-P
 
 Example of defining routing and using JSON payloads utilizing similar functionality as JSON-B and JSON-P.
 
-See also blog : *Coming soon*
+See also blog : [Why don’t you create your next Backed-end application with Kotlin and Ktor?](https://www.atbash.be/2023/05/02/why-dont-you-create-your-next-backed-end-application-with-kotlin-and-ktor/)
+
+# JWT usage with Keycloak
+
+Rest endpoints using authentication/authorization based on JWT token from Keycloak in header.
+
+Application with
+
+- Payara 6 and MicroProfile 6
+- Atbash Runtime (with and without Jakarta Runner feature)
