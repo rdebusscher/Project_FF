@@ -47,3 +47,5 @@ Application with
 - Payara 6 and MicroProfile 6
 - Atbash Runtime (with and without Jakarta Runner feature)
 - Spring Boot 3
+- Quarkus 3
+
