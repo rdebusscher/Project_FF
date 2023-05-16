@@ -48,4 +48,5 @@ Application with
 - Atbash Runtime (with and without Jakarta Runner feature)
 - Spring Boot 3
 - Quarkus 3
+- Ktor
 
