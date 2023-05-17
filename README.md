@@ -50,3 +50,9 @@ Application with
 - Quarkus 3
 - Ktor
 
+Directory _keycloak_ contains the info and scripts to setup and configure Keycloak and test out the application on each runtime.
+
+- See `commands.txt` for the start of Keycloak as Docker container
+- See `commands.txt` for the setup of a Python environment
+- python scripts to setup Keycloak and test the application endpoints.
+

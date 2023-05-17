@@ -1,0 +1,16 @@
+# Start Keycloak (dev mode and with context path which is same as older wildfly versions , pre version 17)
+# Dev mode is not recommended for production
+docker run -e KEYCLOAK_ADMIN=atbash -e KEYCLOAK_ADMIN_PASSWORD=secret -p 8888:8080 quay.io/keycloak/keycloak:21.1.0 start-dev --http-relative-path /auth
+
+# Setup Python environment
+
+pip install -r requirements.txt
+
+
+# Setup keycloak for the demos
+python setup_jwt_example.py
+
+# Test out application on runtime (identical script for all runtimes)
+python test_jwt_example.py
+
+# The 4th call should fail as it is calling a 'administrator' protected endpoint with a regular user.
