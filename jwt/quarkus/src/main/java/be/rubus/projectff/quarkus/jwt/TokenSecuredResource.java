@@ -49,6 +49,6 @@ public class TokenSecuredResource {
     @Authenticated
     // No roles specified, so only valid JWT is required
     public String getUser() {
-        return "Protected Resource; user : " + name;
+        return "Hello "  + name;
     }
 }

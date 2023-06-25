@@ -42,7 +42,7 @@ public class ProtectedController {
     @GET
     @Path("/admin")
     @RolesAllowed("administrator")
-    public String getJWTBasedValue() {
+    public String getAdminMessage() {
         return "Protected Resource; Administrator Only ";
     }
 
@@ -50,7 +50,7 @@ public class ProtectedController {
     @Path("/user")
     // No roles specified, so only valid JWT is required
     public String getUser() {
-        return "Protected Resource; user : " + name;
+        return "Hello " + name;
     }
 
 }
